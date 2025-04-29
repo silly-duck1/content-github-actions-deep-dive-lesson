@@ -50,7 +50,7 @@ jobs:
     steps:
       - name: Create release
         id: create_release
-        uses: actions/create-release@v2
+        uses: actions/create-release@v4
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }} 
         with:
@@ -60,11 +60,11 @@ jobs:
           draft: false
           prerelease: false
       - name: Download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: zipped-bundle
       - name: Upload release asset
-        uses: actions/upload-release-asset@v2
+        uses: actions/upload-release-asset@v4
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
